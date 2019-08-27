@@ -47,6 +47,12 @@ class App extends React.Component {
                         <div className="col-md-8">
                             <Weather />
 
+                            {
+                                this.state.weatherData.map((data) => {
+                                    return <h1>{data.main.temp}</h1>
+                                })
+                            }
+
 
                         </div>
 
