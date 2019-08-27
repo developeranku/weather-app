@@ -15,16 +15,17 @@ class App extends React.Component {
         this.setState({ city: document.getElementById('city').value })
     }
 
+    componentDidMount() {
+        this.fetchAPI();
+    }
+
     fetchAPI() {
         const API_KEY = '77c7ae9c2ac84dff19c359c057fbf19b';
         let city = this.state.city;
         const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`;
         fetch(url).then(res => res.json()).then(data => this.state.weatherData.push(data));
         console.log(this.state.weatherData);
-
     }
-
-
 
     render() {
         return (
@@ -45,6 +46,8 @@ class App extends React.Component {
 
                         <div className="col-md-8">
                             <Weather />
+
+
                         </div>
 
                     </div>
