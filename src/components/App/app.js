@@ -6,7 +6,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { city: 'Gurgaon', weatherData: [] }
+        this.state = { city: 'Delhi', weatherData: [] }
         this.getCity = this.getCity.bind(this);
         this.fetchAPI = this.fetchAPI.bind(this);
     }
@@ -19,12 +19,12 @@ class App extends React.Component {
         this.fetchAPI();
     }
 
-    fetchAPI() {
+    async fetchAPI() {
         const API_KEY = '77c7ae9c2ac84dff19c359c057fbf19b';
         let city = this.state.city;
-        const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`;
-        fetch(url).then(res => res.json()).then(data => this.state.weatherData.push(data));
-        console.log(this.state.weatherData);
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`;
+        fetch(url, { cache: 'no-cache' }).then(res => res.json()).then(data => this.state.weatherData.push(data));
+        console.log(this.state.weatherData)
     }
 
     render() {
@@ -34,11 +34,10 @@ class App extends React.Component {
                     <div className="row mt-5">
                         <div className="col-md-4">
 
-                            <form autoComplete="off" >
+                            <form autoComplete="off" onSubmit={this.fetchAPI} >
                                 <div className="form-group">
                                     <input type="" id="city" className="form-control" onChange={this.getCity} />
-                                    <a className="btn btn-primary mt-2" href="# " onClick={this.fetchAPI} >Submit</a>
-
+                                    <button className="btn btn-primary mt-2" href="# ">Submit</button>
                                 </div>
                             </form>
 
@@ -47,11 +46,6 @@ class App extends React.Component {
                         <div className="col-md-8">
                             <Weather />
 
-                            {
-                                this.state.weatherData.map((data) => {
-                                    return <h1>{data.main.temp}</h1>
-                                })
-                            }
 
 
                         </div>
