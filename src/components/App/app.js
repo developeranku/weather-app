@@ -6,24 +6,23 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { city: 'Delhi', weatherData: [] }
+        this.state = { city: '', weatherData: [{ main: { temp: 308.07 } }] }
         this.getCity = this.getCity.bind(this);
         this.fetchAPI = this.fetchAPI.bind(this);
     }
 
     getCity() {
-        this.setState({ city: document.getElementById('city').value })
+        const city = document.getElementById('city').value;
+        this.setState({ city: city })
     }
 
-    componentDidMount() {
-        this.fetchAPI();
-    }
-
-    async fetchAPI() {
+    fetchAPI() {
         const API_KEY = '77c7ae9c2ac84dff19c359c057fbf19b';
-        let city = this.state.city;
+        const city = this.state.city;
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`;
-        fetch(url, { cache: 'no-cache' }).then(res => res.json()).then(data => this.state.weatherData.push(data));
+        fetch(url).then(res => res.json()).then((data) => {
+            this.state.weatherData.splice(0, 1, data);
+        })
         console.log(this.state.weatherData)
     }
 
@@ -34,10 +33,10 @@ class App extends React.Component {
                     <div className="row mt-5">
                         <div className="col-md-4">
 
-                            <form autoComplete="off" onSubmit={this.fetchAPI} >
+                            <form autoComplete="off"  >
                                 <div className="form-group">
-                                    <input type="" id="city" className="form-control" onChange={this.getCity} />
-                                    <button className="btn btn-primary mt-2" href="# ">Submit</button>
+                                    <input type="" id="city" className="form-control" onKeyUp={this.getCity} />
+                                    <button className="btn btn-primary mt-2" href="# " onClick={this.fetchAPI}>Submit</button>
                                 </div>
                             </form>
 
@@ -45,9 +44,6 @@ class App extends React.Component {
 
                         <div className="col-md-8">
                             <Weather />
-
-
-
                         </div>
 
                     </div>
