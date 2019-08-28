@@ -7,8 +7,8 @@ class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = { city: '', weatherData: [{ main: { temp: 308.07 } }] }
-        this.getCity = this.getCity.bind(this);
-        this.fetchAPI = this.fetchAPI.bind(this);
+        this.getCity = this.getCity.bind(this)
+        this.fetchAPI = this.fetchAPI.bind(this)
     }
 
     getCity() {
