@@ -1,0 +1,97 @@
+body {
+    background: #001231 !important;
+}
+
+body * {
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    width: 100% !important;
+    max-width: 100% !important;
+}
+
+.title h1 {
+    font-weight: 300;
+    margin: 20px 0;
+}
+
+.title span {
+    font-weight: 600;
+}
+
+.inputForm {
+    background: #16AAF1;
+    padding: 30px 10px;
+    height: 100vh;
+}
+
+.inputForm h4 {
+    font-weight: 300;
+}
+
+.inputForm img {
+    width: 90%;
+    margin: auto;
+}
+
+.inputForm input {
+    color: white;
+    background: none;
+    border: solid 1px white;
+    border-radius: 0;
+    width: 80%;
+    float: left;
+}
+
+.inputForm input:focus {
+    color: #001231;
+    box-shadow: none;
+}
+
+.inputForm button {
+    width: 20%;
+    float: left;
+    background: #001231;
+    border: solid 1px #001231 !important;
+    border-radius: 0;
+
+}
+
+.inputForm button:hover {
+    background: #0A254C !important;
+}
+
+.inputForm button:focus {
+    box-shadow: none;
+}
+
+.inputForm button:active {
+    box-shadow: none;
+    background: #010D1E !important;
+}
+
+.weatherData {
+    bottom: 0;
+}
+
+.weatherData img {
+    width: 40%;
+    margin: auto;
+}
+
+.humidity {
+    background: #013568;
+    padding: 20px 5px;
+}
+
+.pressure {
+    background: #022651;
+    padding: 20px 5px;
+}
+
+.temperature {
+    background: #011A3F;
+    padding: 20px 5px;
+}

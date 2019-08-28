@@ -1,12 +1,16 @@
 import React from 'react';
+import './app.css';
 import { Weather } from './../Weather/weather';
 import 'bootstrap/dist/css/bootstrap.min.css';
+
+// Images
+import CityImage from './../../images/city.png';
 
 class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { city: 'City', humidity: '', pressure: '', temp: '' }
+        this.state = { city: 'City', humidity: '-', pressure: '-', temp: '-' }
         this.getCity = this.getCity.bind(this)
         this.fetchAPI = this.fetchAPI.bind(this)
     }
@@ -14,6 +18,10 @@ class App extends React.Component {
     getCity() {
         const city = document.getElementById('city').value;
         this.setState({ city: city })
+    }
+
+    convertToCelcius(kelvin) {
+        return (kelvin - 273).toFixed(2) + ' C';
     }
 
     fetchAPI() {
@@ -27,7 +35,7 @@ class App extends React.Component {
                 this.setState({
                     humidity: data.main.humidity,
                     pressure: data.main.pressure,
-                    temp: data.main.temp
+                    temp: this.convertToCelcius(data.main.temp)
                 });
             }
 
@@ -35,7 +43,7 @@ class App extends React.Component {
                 alert('Please enter city name')
             }
 
-        });
+        }).catch(err => alert(' Sorry! We dont have this city in our data'));
 
         console.log(this.state)
     }
@@ -43,28 +51,35 @@ class App extends React.Component {
     render() {
         return (
             <React.Fragment>
-                <div className="container">
-                    <div className="row mt-5">
-                        <div className="col-md-4">
+                <div className="body">
+                    <div className="container">
 
-                            <form autoComplete="off">
-                                <div className="form-group">
-                                    <input type="" id="city" className="form-control" onChange={this.getCity} />
-                                    <button className="btn btn-primary mt-2" href="# " onClick={this.fetchAPI}>Submit</button>
+                        <div className="row">
+                            <div className="col-md-4 inputForm">
+                                <h4>Please enter your city name:</h4>
+                                <form autoComplete="off">
+                                    <div className="form-group">
+                                        <input type="" id="city" className="form-control" onChange={this.getCity} />
+                                        <button className="btn btn-primary" href="# " onClick={this.fetchAPI}><i class="fa fa-search" /></button>
+
+                                    </div>
+                                </form>
+
+                                <img src={CityImage} alt="city" />
+
+                            </div>
+
+                            <div className="col-md-8">
+                                <div className="title">
                                 </div>
-                            </form>
-
+                                <Weather
+                                    city={this.getCity}
+                                    humidity={this.state.humidity}
+                                    pressure={this.state.pressure}
+                                    temp={this.state.temp}
+                                />
+                            </div>
                         </div>
-
-                        <div className="col-md-8">
-                            <Weather
-                                city={this.state.city}
-                                humidity={this.state.humidity}
-                                pressure={this.state.pressure}
-                                temp={this.state.temp}
-                            />
-                        </div>
-
                     </div>
                 </div>
             </React.Fragment>
