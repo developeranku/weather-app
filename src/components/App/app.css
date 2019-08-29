@@ -7,6 +7,10 @@ body * {
     font-family: 'Montserrat', sans-serif;
 }
 
+p {
+    margin-bottom: 0px !important;
+}
+
 .container {
     width: 100% !important;
     max-width: 100% !important;
@@ -32,8 +36,10 @@ body * {
 }
 
 .inputForm img {
-    width: 90%;
+    width: 80%;
     margin: auto;
+    margin-top: 50px;
+
 }
 
 .inputForm input {
@@ -50,7 +56,7 @@ body * {
     box-shadow: none;
 }
 
-.inputForm button {
+.inputForm a {
     width: 20%;
     float: left;
     background: #001231;
@@ -59,21 +65,26 @@ body * {
 
 }
 
-.inputForm button:hover {
+.inputForm a:hover {
     background: #0A254C !important;
 }
 
-.inputForm button:focus {
+.inputForm a:focus {
     box-shadow: none;
 }
 
-.inputForm button:active {
+.inputForm a:active {
     box-shadow: none;
     background: #010D1E !important;
 }
 
 .weatherData {
     bottom: 0;
+}
+
+.weatherData p {
+    font-size: 18px;
+    margin: 10px 0;
 }
 
 .weatherData img {
@@ -83,15 +94,57 @@ body * {
 
 .humidity {
     background: #013568;
-    padding: 20px 5px;
+    padding: 40vh 5px;
+    height: 100vh;
+    margin: auto;
 }
 
 .pressure {
     background: #022651;
-    padding: 20px 5px;
+    padding: 40vh 5px;
+    height: 100vh;
+    margin: auto;
 }
 
 .temperature {
     background: #011A3F;
-    padding: 20px 5px;
+    padding: 40vh 5px;
+    height: 100vh;
+    margin: auto;
+
+}
+
+@media only screen and (max-width: 992px) {
+    .inputForm {
+        height: auto;
+    }
+
+    .inputForm img {
+        width: 20%;
+        margin-top: 20px;
+    }
+
+    .humidity,
+    .pressure,
+    .temperature {
+        height: auto;
+        padding: 80px 6px;
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+
+    .humidity img,
+    .pressure img,
+    .temperature img {
+        width: 18%;
+    }
+
+    .humidity,
+    .pressure,
+    .temperature {
+        padding: 24px 6px;
+    }
+
 }
