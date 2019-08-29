@@ -1,4 +1,5 @@
 import React from 'react';
+import swal from 'sweetalert';
 import './app.css';
 import { Weather } from './../Weather/weather';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -10,7 +11,7 @@ class App extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = { city: 'City', humidity: '-', pressure: '-', temp: '-' }
+        this.state = { city: '', humidity: '-', pressure: '-', temp: '-' }
         this.getCity = this.getCity.bind(this)
         this.fetchAPI = this.fetchAPI.bind(this)
     }
@@ -40,10 +41,10 @@ class App extends React.Component {
             }
 
             else {
-                alert('Please enter city name')
+                swal('Please enter city name')
             }
 
-        }).catch(err => alert(' Sorry! We dont have this city in our data'));
+        }).catch(err => swal(' Sorry! We dont have this city in our data'));
 
         console.log(this.state)
     }
@@ -58,12 +59,12 @@ class App extends React.Component {
                             <div className="col-lg-4 inputForm">
                                 <h4>Please enter your city name:</h4>
 
-                                <form autoComplete="off" >
+                                <form autoComplete="off" onSubmit={this.fetchAPI}>
                                     <div className="form-group">
                                         <input type="text" id="city" className="form-control" onChange={this.getCity} />
-                                        <a className="btn btn-primary" href="# " onClick={this.fetchAPI}>
+                                        <button type="submit" className="btn btn-primary" href="# ">
                                             <i className="fa fa-search" />
-                                        </a>
+                                        </button>
 
                                     </div>
                                 </form>

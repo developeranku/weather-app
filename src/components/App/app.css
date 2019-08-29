@@ -25,6 +25,16 @@ p {
     font-weight: 600;
 }
 
+.swal-button-container {
+    display: none;
+}
+
+.swal-text {
+    color: #001231;
+    font-size: 14px;
+    text-align: center;
+}
+
 .inputForm {
     background: #16AAF1;
     padding: 30px 10px;
@@ -56,7 +66,7 @@ p {
     box-shadow: none;
 }
 
-.inputForm a {
+.inputForm button {
     width: 20%;
     float: left;
     background: #001231;
@@ -65,15 +75,15 @@ p {
 
 }
 
-.inputForm a:hover {
+.inputForm button:hover {
     background: #0A254C !important;
 }
 
-.inputForm a:focus {
+.inputForm button:focus {
     box-shadow: none;
 }
 
-.inputForm a:active {
+.inputForm button:active {
     box-shadow: none;
     background: #010D1E !important;
 }

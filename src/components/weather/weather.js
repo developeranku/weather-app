@@ -8,7 +8,6 @@ export class Weather extends React.Component {
         return (
             <React.Fragment>
                 <div className="row weatherData">
-
                     <div className="col-md-4 humidity">
                         <img src={humidityIcon} alt='icon' />
                         <p>Humidity: <br /> {this.props.humidity} %</p>
