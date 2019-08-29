@@ -60,7 +60,7 @@ class App extends React.Component {
                                 <form autoComplete="off">
                                     <div className="form-group">
                                         <input type="" id="city" className="form-control" onChange={this.getCity} />
-                                        <button className="btn btn-primary" href="# " onClick={this.fetchAPI}><i class="fa fa-search" /></button>
+                                        <button className="btn btn-primary" href="# " onClick={this.fetchAPI}><i className="fa fa-search" /></button>
 
                                     </div>
                                 </form>
