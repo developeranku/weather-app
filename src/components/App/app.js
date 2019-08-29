@@ -60,7 +60,7 @@ class App extends React.Component {
 
                                 <form autoComplete="off" >
                                     <div className="form-group">
-                                        <input type="" id="city" className="form-control" onChange={this.getCity} />
+                                        <input type="text" id="city" className="form-control" onChange={this.getCity} />
                                         <a className="btn btn-primary" href="# " onClick={this.fetchAPI}>
                                             <i className="fa fa-search" />
                                         </a>
@@ -82,7 +82,11 @@ class App extends React.Component {
                                 </div>
 
                                 <div className="footer">
-                                    <p>This application is developed by: Ankur Sharma</p>
+                                    <p>This application is developed by: Ankur Sharma
+                                        <a href="https://github.com/developeranku" target="_blank" rel="noopener noreferrer"><i className="fab fa-github"></i></a>
+                                        <a href="https://www.linkedin.com/in/ankur-sharma-042b5312b" target="_blank" rel="noopener noreferrer"><i className="fab fa-linkedin"></i></a>
+                                    </p>
+
                                 </div>
 
                             </div>

@@ -94,24 +94,43 @@ p {
 
 .humidity {
     background: #013568;
-    padding: 40vh 5px;
+    padding: 38vh 5px;
     height: 100vh;
     margin: auto;
 }
 
 .pressure {
     background: #022651;
-    padding: 40vh 5px;
+    padding: 38vh 5px;
     height: 100vh;
     margin: auto;
 }
 
 .temperature {
     background: #011A3F;
-    padding: 40vh 5px;
+    padding: 38vh 5px;
     height: 100vh;
     margin: auto;
 
+}
+
+.footer {
+    background: #001231;
+    padding: 16px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.footer p {
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: 0.04em;
+}
+
+.footer i {
+    padding-left: 14px;
 }
 
 @media only screen and (max-width: 992px) {
@@ -128,7 +147,12 @@ p {
     .pressure,
     .temperature {
         height: auto;
+        margin: 0;
         padding: 80px 6px;
+    }
+
+    .footer {
+        position: static;
     }
 
 }
