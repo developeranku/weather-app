@@ -25,7 +25,8 @@ class App extends React.Component {
         return (kelvin - 273).toFixed(2);
     }
 
-    fetchAPI() {
+    fetchAPI(e) {
+        e.preventDefault();
         const API_KEY = '77c7ae9c2ac84dff19c359c057fbf19b';
         const city = this.state.city;
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${API_KEY}`;
@@ -62,7 +63,7 @@ class App extends React.Component {
                                 <form autoComplete="off" onSubmit={this.fetchAPI}>
                                     <div className="form-group">
                                         <input type="text" id="city" className="form-control" onChange={this.getCity} />
-                                        <button type="submit" className="btn btn-primary" href="# ">
+                                        <button type="submit" className="btn btn-primary">
                                             <i className="fa fa-search" />
                                         </button>
 
