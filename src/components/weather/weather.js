@@ -16,7 +16,7 @@ export class Weather extends React.Component {
 
                     <div className="col-md-4 pressure">
                         <img src={pressureIcon} alt='icon' />
-                        <p>Pressure: <br /> {this.props.pressure} %</p>
+                        <p>Pressure: <br /> {this.props.pressure} hPa</p>
                     </div>
 
                     <div className="col-md-4 temperature">

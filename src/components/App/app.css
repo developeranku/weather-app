@@ -35,6 +35,10 @@ p {
     text-align: center;
 }
 
+.swal-text:first-child {
+    margin-top: 36px !important;
+}
+
 .inputForm {
     background: #16AAF1;
     padding: 30px 10px;
