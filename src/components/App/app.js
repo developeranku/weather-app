@@ -1,7 +1,7 @@
 import React from 'react';
 import swal from 'sweetalert';
 import './app.css';
-import { Weather } from './../Weather/weather';
+import { Weather } from './../weather/weather';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 // Images
